@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('m_tank_volume', function (Blueprint $table) {
+        Schema::create('m_tank_volume_51_58', function (Blueprint $table) {
             $table->id();
             $table->string('type_of_tank');
             $table->float('height');
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('m_tank_volume');
+        Schema::dropIfExists('m_tank_volume_51_58');
     }
 };

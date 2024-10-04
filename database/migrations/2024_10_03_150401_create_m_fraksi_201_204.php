@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('m_specific_gravity', function (Blueprint $table) {
+        Schema::create('m_fraksi_201_204', function (Blueprint $table) {
             $table->id();
             $table->string('type_of_tank');
-            $table->string('item');
-            $table->float('sg');
+            $table->float('height_of_ring');
+            $table->float('height');
+            $table->float('vol');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('m_solvent_gravity');
+        Schema::dropIfExists('m_fraksi_201_204');
     }
 };

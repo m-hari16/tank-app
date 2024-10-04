@@ -5,15 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MasterSpecificGrafity extends Model
+class MasterVolumeTankA extends Model
 {
     use HasFactory;
 
-    protected $table = 'm_specific_gravity';
+    protected $table = 'm_tank_volume_51_58';
 
     protected $fillable = [
         'type_of_tank',
-        'item',
-        'sg',
+        'height',
+        'vol_up',
+        'vol_down',
     ];
 }
