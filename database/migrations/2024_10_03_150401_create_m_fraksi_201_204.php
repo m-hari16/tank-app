@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('m_fraksi_201_204', function (Blueprint $table) {
             $table->id();
             $table->string('type_of_tank');
-            $table->float('height_of_ring');
+            $table->integer('ring_type');
             $table->float('height');
             $table->float('vol');
             $table->timestamps();

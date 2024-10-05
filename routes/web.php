@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Web\TankA;
+use App\Http\Controllers\Web\TankB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,19 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('page.home.home');
-});
-
 /**
  * Page View Routes
  */
 Route::get('/', function () {
     return view('page.home.index');
 });
-Route::get('/tank/51-58', [TankA::class, 'index'])->name('tankA.index');
+Route::get('/tank-a/51-58', [TankA::class, 'index'])->name('tankA.index');
+Route::get('/tank-b/{tank_identity}', [TankB::class, 'index'])->name('tankB.index');
 
 /**
  * Form Handler Routes
  */
 Route::post('/tank/51-58', [TankA::class, 'calculate'])->name('tankA.calculate');
+Route::post('/tank/201-204', [TankB::class, 'calculate'])->name('tankB.calculate');

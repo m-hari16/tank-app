@@ -293,32 +293,32 @@ return [
         // Sidebar items:
         [
             'text' => 'Tangki 51-58',
-            'url'  => 'tank/51-58',
+            'url'  => 'tank-a/51-58',
             'icon' => 'fas fa-fw fa-briefcase',
         ],
         [
             'text' => 'Tangki 201',
-            'url'  => 'tank/201',
+            'url'  => 'tank-b/201',
             'icon' => 'fas fa-fw fa-briefcase',
         ],        
         [
             'text' => 'Tangki 202',
-            'url'  => 'tank/202',
+            'url'  => 'tank-b/202',
             'icon' => 'fas fa-fw fa-briefcase',
         ],        
         [
             'text' => 'Tangki 203',
-            'url'  => 'tank/203',
+            'url'  => 'tank-b/203',
             'icon' => 'fas fa-fw fa-briefcase',
         ],        
         [
             'text' => 'Tangki 204',
-            'url'  => 'tank/204',
+            'url'  => 'tank-b/204',
             'icon' => 'fas fa-fw fa-briefcase',
         ],        
         [
             'text' => 'Tangki Solar',
-            'url'  => 'tank/solar',
+            'url'  => 'tank-c/solar',
             'icon' => 'fas fa-fw fa-briefcase',
         ]
     ],
