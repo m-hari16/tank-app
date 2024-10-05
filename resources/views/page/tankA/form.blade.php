@@ -34,10 +34,8 @@
           </select>
         </div>
         <div class="card-body">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Input Sounding (cm)</label>
-            <input type="number" step="0.01" class="form-control" id="sounding" name="sounding" placeholder="Sounding (cm)" required>
-          </div>
+          <label for="exampleInputEmail1">Input Sounding (cm)</label>
+          <input type="number" step="0.01" class="form-control" id="sounding" name="sounding" placeholder="Sounding (cm)" required>
         </div>
 
         <div class="card-footer">
