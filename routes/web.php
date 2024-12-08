@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Web\TankA;
 use App\Http\Controllers\Web\TankB;
+use App\Http\Controllers\Web\TankC;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,9 +24,11 @@ Route::get('/', function () {
 });
 Route::get('/tank-a/51-58', [TankA::class, 'index'])->name('tankA.index');
 Route::get('/tank-b/{tank_identity}', [TankB::class, 'index'])->name('tankB.index');
+Route::get('/tank-c/{tank_identity}', [TankB::class, 'index'])->name('tankB.index');
 
 /**
  * Form Handler Routes
  */
 Route::post('/tank/51-58', [TankA::class, 'calculate'])->name('tankA.calculate');
 Route::post('/tank/201-204', [TankB::class, 'calculate'])->name('tankB.calculate');
+Route::post('/tank/solar', [TankC::class, 'calculate'])->name('tankC.calculate');
