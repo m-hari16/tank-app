@@ -13,7 +13,7 @@ class TankB extends Controller
     public function index(Request $req)
     {
         $tank_id = $req->tank_identity;
-        $item_tank = MasterSGTankB::where('type_of_tank', $tank_id)->first();
+        $item_tank = MasterSGTankB::distinct()->get(['item']);
 
         return view('page.tankB.form', ['tank_id' => $tank_id, 'item_tank' => $item_tank]);
     }
@@ -34,7 +34,7 @@ class TankB extends Controller
             $ringVol = $fraksi->vol;
         }
 
-        $sg = MasterSGTankB::where('type_of_tank', $tank_id)->where('temperature', $req->temperature)->first();
+        $sg = MasterSGTankB::where('item', $req->item_tank)->where('temperature', $req->temperature)->first();
 
         $total = round((float)($minVol + $mainVol->vol + $ringVol), 2);
         $final_result = round((float)($total * $sg->sg), 2);
