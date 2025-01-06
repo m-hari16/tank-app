@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', "Tank-App | Tangki $tank_id")
+@section('title', "Tank-App | Tangki Solar")
 
 @section('content_header')
-<h1 class="m-0 text-dark">Tangki {{$tank_id}}</h1>
+<h1 class="m-0 text-dark">Tangki Solar</h1>
 @stop
 
 @section('content')
@@ -16,27 +16,14 @@
       <form id="calculateForm">
         @csrf
         <div class="card-body">
-          <label for="category_id">Nomor Tangki</label>
-          <select class="form-control" id="type_of_tank" name="type_of_tank" required>
-            <option value="{{$tank_id}}" selected>{{$tank_id}}</option>
-          </select>
-        </div>
-        <div class="card-body">
           <label for="category_id">Isi Tangki</label>
-          <select class="form-control" id="item_tank" name="item_tank" required>
-            <option value="" disabled selected>Pilih Isi Tangki</option>
-            @foreach($item_tank as $item)
-            <option value="{{ $item->item }}">{{ $item->item }}</option>
-            @endforeach
+          <select class="form-control" id="type_of_tank" name="type_of_tank" required>
+            <option value="SOLAR" selected>Solar</option>
           </select>
         </div>
         <div class="card-body">
           <label for="inputSounding">Input Sounding (cm)</label>
           <input type="number" step="0.01" class="form-control" id="sounding" name="sounding" placeholder="Sounding (cm)" required>
-        </div>
-        <div class="card-body">
-          <label for="inputSuhu">Input Suhu</label>
-          <input type="number" class="form-control" id="temperature" name="temperature" placeholder="Suhu" required>
         </div>
 
         <div class="card-footer">
@@ -56,23 +43,19 @@
         <table class="table table-hover text-nowrap">
           <tbody>
             <tr>
+              <th>Phi</th>
+              <td id="phi"></td>
+            </tr>
+            <tr>
+              <th>Jari-jari</th>
+              <td id="r"></td>
+            </tr>
+            <tr>
+              <th>Jari-jari ^ 2</th>
+              <td id="r2"></td>
+            </tr>
+            <tr>
               <th>Volume</th>
-              <td id="volume"></td>
-            </tr>
-            <tr>
-              <th>Cincin</th>
-              <td id="cincin"></td>
-            </tr>
-            <tr>
-              <th>Total</th>
-              <td id="total"></td>
-            </tr>
-            <tr>
-              <th>SG</th>
-              <td id="sg"></td>
-            </tr>
-            <tr>
-              <th>Hasil Akhir</th>
               <td>
                 <span id="final_result"></span>
                 <i id="copyBtn" class="fas fa-copy" style="cursor:pointer; margin-left: 20px;" title="Copy"></i>
@@ -92,14 +75,13 @@
     $('#calculateForm').on('submit', function(e) {
       e.preventDefault();
       $.ajax({
-        url: "{{ route('tankB.calculate') }}",
+        url: "{{ route('tankC.calculate') }}",
         type: 'POST',
         data: $(this).serialize(),
         success: function(response) {
-          $('#volume').text(response?.data?.volume);
-          $('#cincin').text(response?.data?.cincin);
-          $('#total').text(response?.data?.total);
-          $('#sg').text(response?.data?.sg);
+          $('#phi').text(response?.data?.phi);
+          $('#r').text(response?.data?.r);
+          $('#r2').text(response?.data?.r2);
           $('#final_result').text(response?.data?.final_result);
           $('#resultTable').show();
           $('input, select').attr('disabled', true);

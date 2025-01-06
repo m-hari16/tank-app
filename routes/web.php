@@ -24,7 +24,7 @@ Route::get('/', function () {
 });
 Route::get('/tank-a/51-58', [TankA::class, 'index'])->name('tankA.index');
 Route::get('/tank-b/{tank_identity}', [TankB::class, 'index'])->name('tankB.index');
-Route::get('/tank-c/{tank_identity}', [TankB::class, 'index'])->name('tankB.index');
+Route::get('/tank-c/{tank_identity}', [TankC::class, 'index'])->name('tankC.index');
 
 /**
  * Form Handler Routes
